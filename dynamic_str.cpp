@@ -80,16 +80,6 @@ public:
         tail = ptr;
     }
 
-    void show_from_head()
-    {
-        std::cout << "From Head: " << head->data << std::endl;
-    }
-    void show_from_tail()
-    {
-        std::cout << "From Tail: " << tail->data << std::endl;
-    }
-
-
 
 
     void show_head() {
