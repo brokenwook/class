@@ -32,19 +32,25 @@ public:
         return ptr;
     }
 
-    Node* push_back(int data) {
+    Node* push_back(int data)
+    {
         Node* ptr = new Node(data);
-
         ptr->prev = tail;
+
         if (tail != NULL)
-        tail->next = ptr;
-        
+            tail->next = ptr;
+
         if (head == NULL)
             head = ptr;
+
         tail = ptr;
 
         return ptr;
+
+
+
     }
+    
 
     void pop_front() {
         if (head == NULL) return;
@@ -74,12 +80,27 @@ public:
         tail = ptr;
     }
 
+    void show_from_head()
+    {
+        std::cout << "From Head: " << head->data << std::endl;
+    }
+    void show_from_tail()
+    {
+        std::cout << "From Tail: " << tail->data << std::endl;
+    }
+
+
+
+
     void show_head() {
         std::cout << "head: " << head->data << std::endl;
-        Node* tmp_node = head->next;
-        tmp_node = tmp_node->prev;
-        std::cout << "Prev from next: " << tmp_node->data << std::endl;
+        std::cout << "head Prev from next: " << head->next->prev->data << std::endl;
     }
+    void show_tail() {
+        std::cout << "tail: " << tail->data << std::endl;
+        std::cout << "Tail Prev from next: " << tail->prev->next->data << std::endl;
+    }
+
 
     void show_all() {
         Node* tmp_node = head;
@@ -98,8 +119,14 @@ int main() {
     list.push_back(3);
     list.push_back(4);
 
+    list.show_from_head();
+    list.show_from_tail();
+
     list.show_head();
+    list.show_tail();
     list.show_all();
 
     return 0;
 }
+
+
