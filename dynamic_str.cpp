@@ -80,12 +80,41 @@ public:
         tail = ptr;
     }
 
+  
 
+    void show_from_head()
+    {
+        Node* tmp_node = head;
+        while (true) {
+            if (tmp_node != NULL) {
+                std::cout << "show from head: " << tmp_node->data << std::endl;
+                tmp_node = tmp_node->next;
+            }
+            else { break; }
+        }
+        std::cout << std::endl;
+    }
+
+    void show_from_tail()
+    {
+        Node* tmp_node = tail;
+        while (true) {
+            if (tmp_node != NULL) {
+                std::cout << "show from tail: " << tmp_node->data << std::endl;
+                tmp_node = tmp_node->prev;
+            }
+            else { break; }
+        }
+
+    }
 
     void show_head() {
         std::cout << "head: " << head->data << std::endl;
         std::cout << "head Prev from next: " << head->next->prev->data << std::endl;
     }
+
+    
+
     void show_tail() {
         std::cout << "tail: " << tail->data << std::endl;
         std::cout << "Tail Prev from next: " << tail->prev->next->data << std::endl;
